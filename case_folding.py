@@ -20,8 +20,8 @@ factory = StopWordRemoverFactory()
 stopword = factory.create_stop_word_remover()
 stop_factory = StopWordRemoverFactory().get_stop_words() #load defaul stopword
 more_stopword = ['daring', 'online'] #menambahkan stopword
-#baca file
 
+#baca file, ekstensi yang dibaca TXT, JSON dll. Silahkan ganti output10.txt dengan teks hasil crawling atau scraping anda
 file_puisi = open("output10.txt", "r",encoding="utf8")
 #tahapan case folding
 kalimat = file_puisi.read()
@@ -74,7 +74,8 @@ factory = StemmerFactory()
 stemmer = factory.create_stemmer()
 hasil4 = stemmer.stem(hasil2)
 print(hasil4)
-#simpan ke file txt
+#simpan ke file txt, output berupa file txt yang disimpan pada direktori stemming (silahkan buat direktori stemming
+#pada laptop/komputer anda
 file_output = open("stemming/hasil6.txt", "w")
 
 # tulis teks ke file
