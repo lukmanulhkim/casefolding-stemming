@@ -22,9 +22,9 @@ stop_factory = StopWordRemoverFactory().get_stop_words() #load defaul stopword
 more_stopword = ['daring', 'online'] #menambahkan stopword
 
 #baca file, ekstensi yang dibaca TXT, JSON dll. Silahkan ganti output10.txt dengan teks hasil crawling atau scraping anda
-file_puisi = open("output10.txt", "r",encoding="utf8")
+file_input = open("output10.txt", "r",encoding="utf8")
 #tahapan case folding
-kalimat = file_puisi.read()
+kalimat = file_input.read()
 
 #hilangkan huruf besar
 lower_case = kalimat.lower()
@@ -86,4 +86,4 @@ file_output.close()
 #print(tokens2, file=open("hasil.txt", "a"))
 # lower_case = kalimat.lower()
 # print(lower_case)
-file_puisi.close()
+file_input.close()
