@@ -22,14 +22,26 @@ stop_factory = StopWordRemoverFactory().get_stop_words() #load defaul stopword
 more_stopword = ['daring', 'online'] #menambahkan stopword
 
 #baca file, ekstensi yang dibaca TXT, JSON dll. Silahkan ganti output10.txt dengan teks hasil crawling atau scraping anda
-file_input = open("output10.txt", "r",encoding="utf8")
+file_input = open("output9.json", "r",encoding="utf8")
+
 #tahapan case folding
 kalimat = file_input.read()
 
 #hilangkan huruf besar
 lower_case = kalimat.lower()
+
+#hilangkan url
+pattern = r"http\S+"
+text = lower_case
+removeurl = re.sub(pattern,"",lower_case)
+
 #hilangkan angka
-hasil = re.sub(r"\d+", "", lower_case)
+hasil = re.sub(r"\d+", "",removeurl)
+
+
+
+
+# re.sub(r'http\S+',",stringliteral)
 #hilangkan tanda baca
 hasil1 = hasil.translate(str.maketrans("","",string.punctuation))
 #hilangkan spasi
@@ -51,18 +63,18 @@ kemunculan.plot(30,cumulative=False)
 plt.show()
 #filtering with nltk
 tokens2 = word_tokenize(hasil2)
-listStopword = set(stopwords.words('indonesian'))
+# listStopword = set(stopwords.words('indonesian'))
 
-removed = []
-for t in tokens2:
-    if t not in listStopword:
-        removed.append(t)
+# removed = []
+# for t in tokens2:
+#     if t not in listStopword:
+#         removed.append(t)
 
-print(removed)
+# print(removed)
 #filtering with sastrawi
-# stop = stopword.remove(hasil2)
-# tokens2 = nltk.tokenize.word_tokenize(stop)
-# print(tokens2)
+stop = stopword.remove(hasil2)
+tokens2 = nltk.tokenize.word_tokenize(stop)
+print(tokens2)
 
 data = stop_factory + more_stopword  # menggabungkan stopword
 
@@ -76,7 +88,7 @@ hasil4 = stemmer.stem(hasil2)
 print(hasil4)
 #simpan ke file txt, output berupa file txt yang disimpan pada direktori stemming (silahkan buat direktori stemming
 #pada laptop/komputer anda
-file_output = open("stemming/hasil6.txt", "w")
+file_output = open("stemming/hasil15.txt", "w")
 
 # tulis teks ke file
 file_output.write(hasil4)
