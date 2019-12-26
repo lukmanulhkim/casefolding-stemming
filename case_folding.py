@@ -1,4 +1,4 @@
-# Create by Muhammad Azmi
+#Muhammad Azmi
 #2019
 #for case folding and stemming
 import re
